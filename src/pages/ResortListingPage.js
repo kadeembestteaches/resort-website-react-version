@@ -1,11 +1,15 @@
-import {useEffect} from "react"
+import {useEffect,useContext} from "react"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ResortList from "../components/ResortList"
+import ResortContext from "../context/ResortContext";
 
-const ResortListingPage = (props) => {
 
-   
+const ResortListingPage = () => {
+
+  
+  const {setResorts} = useContext(ResortContext);
+
   useEffect(()=>{
 
 
@@ -16,7 +20,7 @@ const ResortListingPage = (props) => {
     .then(json=>{
 
           //We updated the data returned from the Backed with the resort state
-            props.setResorts(json.data)
+            setResorts(json.data)
 
     })
     .catch(err=>{
@@ -33,7 +37,7 @@ const ResortListingPage = (props) => {
     <div className="grid grid-row-3" id="main-container">  
         <Header/>
         <main>
-          <ResortList resorts = {props.resorts} />
+          <ResortList />
         </main>
         <Footer/>
     </div>

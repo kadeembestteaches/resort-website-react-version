@@ -1,13 +1,13 @@
 import React from 'react'
-
+import {Link} from "react-router-dom"
 
 const ResortItemCard = (props) => {
     return (
         <div className="resort-card">
 
-            <a href = {`/`}> 
+            <Link to = {`/resort/details/${props.id}`}> 
                 <img src={props.image} alt={props.title}/>   
-            </a> 
+            </Link> 
 
             <div className="resortContent">
                 <h3>{props.title}</h3>

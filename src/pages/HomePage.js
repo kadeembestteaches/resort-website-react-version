@@ -1,11 +1,14 @@
-import {useEffect} from "react"
+import {useEffect,useContext} from "react"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import ResortList  from "../components/ResortList";
+import ResortContext from "../context/ResortContext";
 
-const HomePage = (props) => 
+const HomePage = () => 
 {
+
+  const {setResorts} = useContext(ResortContext);
      
   useEffect(()=>{
 
@@ -17,7 +20,7 @@ const HomePage = (props) =>
     .then(json=>{
 
           //We updated the data returned from the Backed with the resort state
-            props.setResorts(json.data)
+            setResorts(json.data)
 
     })
     .catch(err=>{
@@ -32,7 +35,7 @@ const HomePage = (props) =>
             <Header/>
             <main>
                 <Hero/>
-                <ResortList resorts={props.resorts}/>
+                <ResortList/>
             </main>
             <Footer/>
         </div>

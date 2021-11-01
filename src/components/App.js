@@ -10,6 +10,7 @@ import RegistrationPage from "../pages/RegistrationPage";
 import AboutPage from "../pages/AboutPage";
 import ResortListingPage from "../pages/ResortListingPage";
 import ResortDescriptionPage from "../pages/ResortDescriptonPage";
+import ResortContext from '../context/ResortContext';
 
 
 import "../assets/css/App.css";
@@ -23,40 +24,41 @@ const App = () => {
   return (
 
           
+
+            
           <Router>
+            <ResortContext.Provider value ={{resorts,setResorts}}>
+                <Switch>
+                    <Route exact path="/">
+                        <HomePage/>
+            
+                    </Route>
 
-              <Switch>
-                  <Route exact path="/">
-                      <HomePage resorts={resorts}  setResorts={setResorts}/>
-          
-                  </Route>
+                    <Route exact path= "/about">
 
-                  <Route exact path= "/about">
+                        <AboutPage/>
+                        
+                    </Route>
 
-                      <AboutPage/>
-                    
-                  </Route>
+                    <Route  exact path= "/registration">
+                        <RegistrationPage/>  
+                    </Route>
 
+                    <Route exact path= "/resorts">
+                        <ResortListingPage/>
+                    </Route>
 
-                  <Route  exact path= "/registration">
-                      <RegistrationPage/>  
-                  </Route>
+                    <Route exact path= "/login">
+                        Blah 
+                    </Route>
 
-                  <Route exact path= "/resorts">
-                      <ResortListingPage resorts ={resorts}  setResorts={setResorts}/>
-                  </Route>
+                    <Route exact path= "/resort/details/:id" >
+                        <ResortDescriptionPage/>   
+                    </Route>
 
-                  <Route exact path= "/login">
-                      Blah 
-                  </Route>
+                </Switch> 
 
-                  <Route exact path= "/resort/details/:id" >
-                      <ResortDescriptionPage/>   
-                  </Route>
-
-              </Switch>
-
-
+            </ResortContext.Provider>
           </Router>
             
    
