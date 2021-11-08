@@ -8,6 +8,8 @@ import ResortContext from "../context/ResortContext";
 const HomePage = () => 
 {
 
+
+   
   const {setResorts} = useContext(ResortContext);
      
   useEffect(()=>{
@@ -15,7 +17,7 @@ const HomePage = () =>
 
     //GET, POST,PUT, DELETE from our Front-End TO our Back
 
-    fetch("http://localhost:5000/resorts?featured=yes")
+    fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/resorts?featured=yes`)
     .then(response=>response.json())
     .then(json=>{
 

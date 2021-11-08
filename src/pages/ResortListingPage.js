@@ -15,7 +15,7 @@ const ResortListingPage = () => {
 
     //GET, POST,PUT, DELETE from our Front-End TO our Back
 
-    fetch("http://localhost:5000/resorts")
+    fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/resorts`)
     .then(response=>response.json())
     .then(json=>{
 

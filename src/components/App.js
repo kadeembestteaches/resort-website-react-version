@@ -20,17 +20,16 @@ import "../assets/css/utilities.css";
 const App = () => {
 
   const [resorts , setResorts] = useState([{}]);
+;
 
   return (
-
-          
 
             
           <Router>
             <ResortContext.Provider value ={{resorts,setResorts}}>
                 <Switch>
                     <Route exact path="/">
-                        <HomePage/>
+                        <HomePage />
             
                     </Route>
 

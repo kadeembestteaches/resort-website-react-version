@@ -21,7 +21,7 @@ const ResortDescriptonPage = () => {
     useEffect(()=>{
 
         //communicate with the backend!
-        fetch("http://localhost:5000/resorts/"+id)
+        fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/resorts/${id}`)
         .then(response=>response.json())
         .then(json=>{
     
